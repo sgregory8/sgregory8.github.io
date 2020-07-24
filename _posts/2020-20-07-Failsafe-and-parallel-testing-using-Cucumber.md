@@ -16,24 +16,24 @@ The first thing to note about running any sort of tests in parallel is the threa
 Nowadays Cucumber supports parallel testing out of the box but this particular problem involved using `cucumber-jvm-parallel-plugin` to generate our own test runners. The following configuration we settled for:
 
 ```xml
-                <groupId>com.github.temyers</groupId>
-                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>generateRunners</id>
-                        <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>generateRunners</goal>
-                        </goals>
-                        <configuration>
-                            <glue>
-                                <package>whatever</package>
-                            </glue>
-                            <parallelScheme>FEATURE</parallelScheme>
-                            <namingScheme>feature-title</namingScheme>
-                        </configuration>
-                    </execution>
-                </executions>
+<groupId>com.github.temyers</groupId>
+<artifactId>cucumber-jvm-parallel-plugin</artifactId>
+<executions>
+    <execution>
+    <id>generateRunners</id>
+    <phase>generate-test-sources</phase>
+    <goals>
+        <goal>generateRunners</goal>
+    </goals>
+    <configuration>
+    <glue>
+        <package>whatever</package>
+    </glue>
+    <parallelScheme>FEATURE</parallelScheme>
+    <namingScheme>feature-title</namingScheme>
+    </configuration>
+    </execution>
+</executions>
 ```
 
 Parallel tests per feature, but it is also possible per scenario!
@@ -43,21 +43,21 @@ Parallel tests per feature, but it is also possible per scenario!
 Now we have test runners generated we just need to configure our failsafe plugin to run them, this was our final setup:
 
 ```xml
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <configuration>
-                  <failIfNoTests>true</failIfNoTests>
-                  <reuseForks>false</reuseForks>
-                  <forkCount>2.0C</forkCount>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-failsafe-plugin</artifactId>
+<configuration>
+    <failIfNoTests>true</failIfNoTests>
+    <reuseForks>false</reuseForks>
+    <forkCount>2.0C</forkCount>
+</configuration>
+<executions>
+    <execution>
+        <goals>
+            <goal>integration-test</goal>
+            <goal>verify</goal>
+        </goals>
+    </execution>
+</executions>
 ```
 
 I mentioned earlier the problems we encountered with running parallel threads. Instead of spawning multiple threads we chose to fork the JVM. This keeps tests running in unpolluted environments where they all have their own access to their own independent test data creation utilities. This is slightly more expensive resource wise but is certainly useful! Here 2.0C represents 2 forks per processor core. The `reuseForks` tag tells maven to terminate the process once a feature run has finished before spawning another one if needed.
