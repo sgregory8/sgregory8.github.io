@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Oxford based dev working in publishing!
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Enjoy cooking, snowboarding and keeping active. Dislikes closeminded-ness and goats cheese.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[sgregory8@hotmail.co.uk](mailto:email@domain.com)
