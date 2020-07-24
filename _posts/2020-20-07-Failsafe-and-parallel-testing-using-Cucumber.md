@@ -11,7 +11,7 @@ The problem with a continuously growing test suite (at least for us) is the time
 
 The first thing to note about running any sort of tests in parallel is the thread-safety of the libraries the test code depends on. In our particular case we'd developed our own library for creating, modifying and deleting test data in an Oracle database; this library exposed some static methods to create and delete data. Unfortunately the implementation itself was NOT thread-safe and even two threads running simultaneously yielded SQL errors. This problem influenced how we'd have to configure our solution.
 
-## Old Cucumber
+## Cucumber JVM Parallel plugin
 
 Nowadays Cucumber supports parallel testing out of the box but this particular problem involved using `cucumber-jvm-parallel-plugin` to generate our own test runners. The following configuration we settled for:
 
