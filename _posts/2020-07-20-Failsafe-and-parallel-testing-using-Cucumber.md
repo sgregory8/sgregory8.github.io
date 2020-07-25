@@ -62,4 +62,4 @@ Now we have test runners generated we just need to configure our failsafe plugin
 
 I mentioned earlier the problems we encountered with running parallel threads. Instead of spawning multiple threads we chose to fork the JVM. This keeps tests running in unpolluted environments where they all have their own access to their own independent test data creation utilities. This is slightly more expensive resource wise but is certainly useful! Here 2.0C represents 2 forks per processor core. The `reuseForks` tag tells maven to terminate the process once a feature run has finished before spawning another one if needed.
 
-We now have a test suite that executes in less than 10 minutes
+We now have a test suite that executes in less than 10 minutes! Sample setup can be found [here](https://github.com/sgregory8/parallel_test).
