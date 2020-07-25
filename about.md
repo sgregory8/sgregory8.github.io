@@ -12,4 +12,4 @@ Enjoy cooking, snowboarding and keeping active. Dislikes closeminded-ness and go
 
 ### Contact me
 
-[sgregory8@hotmail.co.uk](mailto:email@domain.com)
+[Email me](mailto:sgregory8@hotmail.co.uk)
