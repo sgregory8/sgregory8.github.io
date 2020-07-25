@@ -11,7 +11,7 @@ Some commands I find useful...
 Describes plugin goals and what phase the plugin is bound to
 
 ```bash
-mvn help:describe -DgroupId=com.group.id \
-                  -DartifactId=artifactId \
+mvn help:describe -DgroupId=<pluginGroupId> \
+                  -DartifactId=<pluginArtifactId> \
                   -Ddetail=true
 ```
