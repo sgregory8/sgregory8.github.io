@@ -64,4 +64,34 @@ Running the code with one employee creates exactly what we'd expect...
 "28","Sam"
 ```
 
-OpenCSV has effectively worked out the relevant csv headers (field names) and written the contents of our POJO accordingly. But what if we wish to add some configuration some configuration that determines which fields of our POJO we want to write.
+OpenCSV has effectively worked out the relevant csv headers (field names) and written the contents of our POJO accordingly. But what if we wish to add some configuration that determines which fields of our POJO we want to write, but we'll add a caveat; what if we wanted to do this programatically?
+
+### Custom Mapping Strategy
+
+OpenCSV provides an interface that can be implemented and provided we supply it to the instance of `StatefulBeanToCsv` we can solve our problem!
+
+```java
+public class EmpMappingStrategy implements MappingStrategy<Employee> {
+
+  private final String[] headers;
+
+  public EmpMappingStrategy(String[] headers) {
+    this.headers = headers;
+  }
+
+  @Override
+  public String[] generateHeader(Employee employee) throws CsvRequiredFieldEmptyException {
+    return headers;
+  }
+
+  @Override
+  public String[] transmuteBean(Employee employee)
+      throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+    // more complicated
+    return new String[0];
+  }
+```
+
+We only need to provide implementation for these two methods for our case so the others have beem omitted. The `generateHeader` method is responsible for populating the header line (the first line) in our .csv output. The second method `transmuteBean` requires we provide a string array populated with the values of our POJO instance to be written to a csv line. The method provides us with the instance of the POJO.
+
+The first method is straight forward, I've added a parameter in the classes constructor that takes a string array and sets it as an instance variable. The idea here being that the strategy is based upon headers we want to see in the output. We can pass as many or as little as we want! The second method is a little more complicated.
