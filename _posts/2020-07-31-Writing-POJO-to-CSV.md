@@ -144,7 +144,7 @@ If you're only after simplicty though you can strip things back and achieve some
 
 ```java
 public abstract class CSVWritable {
-
+  // setters omitted
   private List<String> fields;
   private String delimeter = ",";
   private String qualifier = "\"";
@@ -196,7 +196,7 @@ public abstract class CSVWritable {
 }
 ```
 
-This abstract class essentially takes all fields from anything subclassing it and lets the subclass implement it's own way to write lines. The benefit of this is much cleaner code (though perhaps not as versatile). As an example I've made a basic pojo...
+This abstract class essentially takes all fields from anything subclassing it and lets the subclass implement it's own way to write lines. There are even setters for modifying the delimeters and text qualifiers in the output! The benefit of this is much cleaner code (though perhaps not as versatile). As an example I've made a basic pojo extedning `CSVWritable`.
 
 ```java
 public class Book extends CSVWritable {
