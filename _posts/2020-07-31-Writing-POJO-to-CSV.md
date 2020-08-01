@@ -196,7 +196,7 @@ public abstract class CSVWritable {
 }
 ```
 
-This abstract class essentially takes all fields from anything subclassing it and lets the subclass implement it's own way to write lines. There are even setters for modifying the delimeters and text qualifiers in the output! The benefit of this is much cleaner code (though perhaps not as versatile). As an example I've made a basic pojo extedning `CSVWritable`.
+This abstract class essentially takes all fields from anything subclassing it and lets the subclass implement it's own way to write lines. There are even setters for modifying the delimeters and text qualifiers in the output! The benefit of this is much cleaner code (though perhaps not as versatile). As an example I've made a basic pojo extending `CSVWritable`.
 
 ```java
 public class Book extends CSVWritable {
@@ -226,4 +226,4 @@ The `writeToCsvLine` provides all the neccessary detail, I can now use a referen
 
 You don't get the advantage of specifying at run time the fields you want and if you wanted to map less fields you would have to make changes to the code itself but for the sake of example I think this solution is perhaps the nicest of all!
 
-All code available [here](git@github.com:sgregory8/csv-concepts.git).
+All code available [here](https://github.com/sgregory8/csv-concepts).
