@@ -95,3 +95,43 @@ public class EmpMappingStrategy implements MappingStrategy<Employee> {
 We only need to provide implementation for these two methods for our case so the others have beem omitted. The `generateHeader` method is responsible for populating the header line (the first line) in our .csv output. The second method `transmuteBean` requires we provide a string array populated with the values of our POJO instance to be written to a csv line. The method provides us with the instance of the POJO.
 
 The first method is straight forward, I've added a parameter in the classes constructor that takes a string array and sets it as an instance variable. The idea here being that the strategy is based upon headers we want to see in the output. We can pass as many or as little as we want! The second method is a little more complicated.
+
+```java
+  @Override
+  public String[] transmuteBean(Employee employee)
+      throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+    // create an array of stings (one for each field of the pojo)
+    // this should be exactly the same size as the header array
+    String[] csvStrings = new String[headersToMap.length];
+
+    // create a map between header name and method to invoke
+    // i've assumed the header name will have an associated getter
+    Map<String, Method> headerMethodMap = new HashMap<>();
+    List<Method> getterMethods = Arrays.stream(employee.getClass().getMethods())
+        .filter(method -> method.getName().startsWith("get") || method.getName().startsWith("is"))
+        .collect(
+            Collectors.toList());
+    Arrays.stream(headersToMap).forEach(header -> {
+      boolean matchFound = false;
+      for (Method method : getterMethods) {
+        if (method.getName().contains(header)) {
+          headerMethodMap.put(header, method);
+          matchFound = true;
+        }
+      }
+      if (!matchFound) throw new RuntimeException("No match found :( for header: " + header);
+    });
+
+    // invoke each method on the instance of our POJO and add to our string array
+    int count = 0;
+    for (String header : headersToMap) {
+      try {
+        csvStrings[count] = headerMethodMap.get(header).invoke(employee).toString();
+        count ++;
+      } catch (IllegalAccessException | InvocationTargetException e) {
+        throw new RuntimeException("Could be bad :(", e);
+      }
+    }
+    return csvStrings;
+  }
+```
