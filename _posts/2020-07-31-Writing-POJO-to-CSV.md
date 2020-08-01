@@ -135,3 +135,95 @@ The first method is straight forward, I've added a parameter in the classes cons
     return csvStrings;
   }
 ```
+
+Essentially we're matching the headers that we're provided with to getter methods on the Employee class and invoking each of these methods on the instance of the POJO the method provides us with. Of course we can run into difficulties if the user provides us with a header value that we can't match with our POJO. In this case i've chosen to throw a RunTime exception and break the process but ultimately it wouldn't be too difficult to change this implemntation to add blanks into the output for a non existing header.
+
+## toCSV?
+
+If you're only after simplicty though you can strip things back and achieve something a little more elegant...
+
+```java
+public abstract class CSVWritable {
+
+  private List<String> fields;
+  private String delimeter = ",";
+  private String qualifier = "\"";
+  private String lineBreak = "\n";
+
+  public CSVWritable() {
+    initFields();
+  }
+
+  protected void initFields() {
+    if (fields == null) fields = new ArrayList<>();
+    Arrays.stream(this.getClass().getDeclaredFields()).forEach(field ->
+        fields.add(field.getName().toUpperCase()));
+  }
+
+  abstract protected List<String> writeToCsvLine();
+
+  protected String writeToCsv(List<CSVWritable> csvWritables) {
+    StringBuilder sb = new StringBuilder();
+
+    fields.forEach(field -> {
+
+      sb.append(qualifier);
+      sb.append(field);
+      sb.append(qualifier);
+      sb.append(delimeter);
+    });
+
+    sb.setLength(sb.length() - 1);
+    sb.append(lineBreak);
+
+    csvWritables.stream().forEach(writable -> {
+      writable.writeToCsvLine().stream().forEach(line -> {
+
+        if (fields.size() != line.length()) {
+          throw new RuntimeException("Mismatch in fields provided and csv line elements");
+        }
+
+        sb.append(qualifier);
+        sb.append(line);
+        sb.append(qualifier);
+        sb.append(delimeter);
+      });
+      sb.setLength(sb.length() - 1);
+      sb.append(lineBreak);
+    });
+    return sb.toString();
+  }
+}
+```
+
+This abstract class essentially takes all fields from anything subclassing it and lets the subclass implement it's own way to write lines. The benefit of this is much cleaner code (though perhaps not as versatile). As an example i've made a basic pojo...
+
+```java
+public class Book extends CSVWritable {
+
+  private String author;
+  private int pages;
+
+  public Book(String author, int pages) {
+    this.author = author;
+    this.pages = pages;
+  }
+
+  @Override
+  protected List<String> writeToCsvLine() {
+    return Arrays.asList(author, String.valueOf(pages));
+  }
+}
+```
+
+The `writeToCsvLine` provides all the neccessary detail, I can now use a reference to a book Object to create the content of a csv file for a list of book objects. In fact calling the method with a couple of example book objects produces this...
+
+```csv
+"AUTHOR","PAGES"
+"Sam","44"
+"Amber","55"
+```
+
+You don't get the advantage of specifying at run time the fields you want and if you wanted to map less fields you would have to make changes to the code itself but for the sake of example I think this solution is perhaps the nicest of all!
+
+All code available [here](git@github.com:sgregory8/csv-concepts.git).
