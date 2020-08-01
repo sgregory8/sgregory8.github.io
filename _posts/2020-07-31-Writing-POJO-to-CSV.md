@@ -56,3 +56,12 @@ public class Writer<T> {
   }
 }
 ```
+
+Running the code with one employee creates exactly what we'd expect...
+
+```csv
+"AGE","NAME"
+"28","Sam"
+```
+
+OpenCSV has effectively worked out the relevant csv headers (field names) and written the contents of our POJO accordingly. But what if we wish to add some configuration some configuration that determines which fields of our POJO we want to write.
