@@ -136,7 +136,7 @@ The first method is straight forward, I've added a parameter in the classes cons
   }
 ```
 
-Essentially we're matching the headers that we're provided with to getter methods on the Employee class and invoking each of these methods on the instance of the POJO the method provides us with. Of course we can run into difficulties if the user provides us with a header value that we can't match with our POJO. In this case i've chosen to throw a RunTime exception and break the process but ultimately it wouldn't be too difficult to change this implemntation to add blanks into the output for a non existing header.
+Essentially we're matching the headers that we're provided with to getter methods on the Employee class, then invoking each of these methods on the instance of the POJO the method provides us with. Of course we can run into difficulties; if the user provides us with a header value that we can't match to our POJO, in this case I've chosen to throw a RunTime exception and break the process. Ultimately it wouldn't be too difficult to change this implemntation to add blanks into the output for a non existing header (however useful or useless that might be).
 
 ## toCSV?
 
@@ -196,7 +196,7 @@ public abstract class CSVWritable {
 }
 ```
 
-This abstract class essentially takes all fields from anything subclassing it and lets the subclass implement it's own way to write lines. The benefit of this is much cleaner code (though perhaps not as versatile). As an example i've made a basic pojo...
+This abstract class essentially takes all fields from anything subclassing it and lets the subclass implement it's own way to write lines. The benefit of this is much cleaner code (though perhaps not as versatile). As an example I've made a basic pojo...
 
 ```java
 public class Book extends CSVWritable {
