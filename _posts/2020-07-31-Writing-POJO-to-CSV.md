@@ -16,3 +16,43 @@ I'm sure I'm not the only one who reaches out to another library in the first in
     <version>5.2</version>
 </dependency>
 ```
+
+With the dependency added we can easily get started by writing a simple POJO...
+
+```java
+public class Employee {
+
+// getters and setters omitted for brevity
+  private String name;
+  private int age;
+
+}
+```
+
+Next we can define a basic writer class which has been generified slightly to write a list of POJO's to a temporary directory...
+
+```java
+// imports omitted for brevity
+public class Writer<T> {
+
+  private static final String TEMP_DIR = System.getProperty("java.io.tmpdir");
+  private static final String CSV_SUFFIX = ".csv";
+
+  public Path writeToCsv(List<T> objects, String fileName) {
+
+    String filePath =
+        TEMP_DIR + File.separator + fileName + CSV_SUFFIX;
+
+    try {
+      FileWriter fileWriter = new FileWriter(filePath);
+      StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder(fileWriter)
+          .build();
+      beanToCsv.write(objects);
+      fileWriter.close();
+    } catch (IOException | CsvRequiredFieldEmptyException | CsvDataTypeMismatchException e) {
+      throw new RuntimeException(e.getCause());
+    }
+    return Path.of(filePath);
+  }
+}
+```
