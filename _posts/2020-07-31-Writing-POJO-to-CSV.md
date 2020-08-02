@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 19/07/20 Writing POJO's to .csv
+title: 31/07/20 Writing POJO's to .csv
 ---
 
 Writing java objects to 'comma seperated values' is nothing new. It turns out there are many ways to accomplish this and enough to warrant this post about a couple of approaches I took.
