@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 19/07/20 Failsafe and parallel testing using Cucumber
+title: Failsafe and parallel testing using Cucumber
 ---
 
 Automated testing has always been a prominent part of our service pipelines. These tests provide the feedback and safety net vital to our continuous deployment strategy but there exists a problem... We have too many!
