@@ -68,7 +68,9 @@ public class Person {
 }
 ```
 
-This class is now ready to be processed.
+## Time to reflect
+
+This class is now ready to be processed and since our annotations are available at runtime let's use Java's reflection API.
 
 ```java
 public class AnnotationProcessor {
@@ -98,9 +100,11 @@ public class AnnotationProcessor {
 }
 ```
 
-We've provided an entry point by creating this annotation processor class and a `processAnnotations` method. All we have to do is use Java's reflection API to get the declared annotations on the class. We're inspecting the class level annotations and determining whether the object provided is annotated with `CSVWritable` if it isn't we throw an exception, otherwise we process the rest of the annotations!
+We've provided an entry point by creating this annotation processor class and a `processAnnotations` method. Using reflection we're inspecting the class level annotations and determining whether the object provided is annotated with `CSVWritable`, if it isn't we throw an exception, otherwise we process the rest of the annotations!
 
-And that's all there is to it, the code written can unfortunately get complicated quickly when multiple annotations are allowed to interact in various different ways. Let's examine how the custom mapping for the csv example has been implemented.
+And that's all there is to it, the code written can unfortunately get complicated quickly when multiple annotations are allowed to interact in various different ways.
+
+## More reflection
 
 In the writer code I've provided an interface that can be implemented for the sake of custom mapping.
 
@@ -112,14 +116,14 @@ public interface CustomCSVMapper<T> {
 }
 ```
 
-This is what the `NameMapper` class implements here.
+We saw this earlier and this is what the `NameMapper.class` references in the `@CSVMetaData` annotation in our example Person class.
 
 ```java
   @CSVMetaData(headerValue = "FULL_NAME", customMapping = NameMapper.class)
   private String firstName;
 ```
 
-The annotation processing picks up on this and also uses Java's reflection API to generate an instance of the mapper and call the map method provided as follows.
+The annotation processing picks up on this and knowing we have a reference to the `NameMapper` class but not to an INSTANCE of the class we'll have to use reflection again! We're able to use the API to get access to the default constructor (which Java handily provides for us) and create an instance of `NameMapper`. From here we can invoke the map method and provide it with the Person object to create the line output.
 
 ```java
 public class NameMapper implements CustomCSVMapper<Person> {
