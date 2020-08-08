@@ -68,7 +68,7 @@ public class Person {
 }
 ```
 
-## Time to reflect
+## Time to Reflect
 
 This class is now ready to be processed and since our annotations are available at runtime let's use Java's reflection API.
 
@@ -104,7 +104,7 @@ We've provided an entry point by creating this annotation processor class and a 
 
 And that's all there is to it, the code written can unfortunately get complicated quickly when multiple annotations are allowed to interact in various different ways.
 
-## More reflection
+## More Reflection
 
 In the writer code I've provided an interface that can be implemented for the sake of custom mapping.
 
