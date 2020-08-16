@@ -81,5 +81,7 @@ The final result then is indeed reminsicent of a classic game of snake. The logi
 
 Code availble [here](https://github.com/sgregory8/snake)
 
+## Play me :) 🐍🐍🐍
+
 <iframe src="https://sgregory8.github.io/snake/" width="600" height="600" title="Snake" scrolling="no">
 </iframe>
