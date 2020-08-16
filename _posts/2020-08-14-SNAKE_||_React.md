@@ -7,7 +7,7 @@ The game snake is a classic in the development world. It's not overly complicate
 
 ## Create React App
 
-There's a handy command that's very useful in creating and bootstrapping React applications and it's called `create React app` it's available via npx.
+There's a handy command that's very useful in creating and bootstrapping React applications and it's called `create-react-app` it's available via npx.
 
 ```bash
 npx create-react-app snake
@@ -79,9 +79,11 @@ These can both be driven entirely by the snake's head, i.e did it's cooridnates 
 
 The final result then is indeed reminsicent of a classic game of snake. The logic at this stage is not very well optimised and I've implemented using Reacts lifecycle method of `componentDidUpdate` too. This function is called upon any updates to the component and using this in conjuction with our already setup game loop is unwise. The game however seems to behave as expected with the one caveat that new food pieces are able to spawn inside the snake itself... hmmm. I suspect this is a side effect of the issue mentioned above but as an introductory piece to react I'm sure it can only get better.
 
-Code availble [here](https://github.com/sgregory8/snake)
+In fact the only thing left to do is install the `gh-pages` package as a dependency, build the application and serve it on a page!
 
-## Play me :) 🐍🐍🐍
+Code available [here](https://github.com/sgregory8/snake)
+
+### Play me :) 🐍🐍🐍
 
 <iframe src="https://sgregory8.github.io/snake/" width="600" height="600" title="Snake" scrolling="no">
 </iframe>
