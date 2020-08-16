@@ -49,7 +49,7 @@ export default props => {
 
 I'd pass in a list of 'snake segments' that would be mapped to a 'point' on our grid. The component accesses the segments via properties passed down from the parent component. I also chose to add two other components called `Food` and `Score` that would be used to render in the snakes food and the players score.
 
-## The Snake Logic
+## Snake Logic
 
 With the components set up we can begin with the game. Essentially snake can be modelled with a simple game loop, get the user input, update the game state and draw the game. So after adding a key listener to our parent component we need to update the game state and draw the game. Using `componentDidMount` we can perform so logic as soon as our component is ready to do so.
 
@@ -73,4 +73,10 @@ There are two conditions we need to check on every game update:
 1. Did the snake hit a boundary?
 2. Did the snake hit itself?
 
-These can both be driven entirely by the snake's head
+These can both be driven entirely by the snake's head, i.e did it's cooridnates intersect with a wall or coordinates within it's own body.
+
+### Putting it all together
+
+The final result then is indeed reminsicent of a classic game of snake. The logic at this stage is not very well optimised and I've implemented using Reacts lifecycle method of `componentDidUpdate` too. This function is called upon any updates to the component and using this in conjuction with our already setup game loop is unwise. The game however seems to behave as expected with the one caveat that new food pieces are able to spawn inside the snake itself... hmmm. I suspect this is a side effect of the issue metnioned above but as an introductory piece to react I'm sure it can only get better.
+
+Code availble [here](https://github.com/sgregory8/snake)
