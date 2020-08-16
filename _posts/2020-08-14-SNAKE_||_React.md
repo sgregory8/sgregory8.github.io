@@ -77,7 +77,7 @@ These can both be driven entirely by the snake's head, i.e did it's cooridnates 
 
 ### Putting it all together
 
-The final result then is indeed reminsicent of a classic game of snake. The logic at this stage is not very well optimised and I've implemented using Reacts lifecycle method of `componentDidUpdate` too. This function is called upon any updates to the component and using this in conjuction with our already setup game loop is unwise. The game however seems to behave as expected with the one caveat that new food pieces are able to spawn inside the snake itself... hmmm. I suspect this is a side effect of the issue metnioned above but as an introductory piece to react I'm sure it can only get better.
+The final result then is indeed reminsicent of a classic game of snake. The logic at this stage is not very well optimised and I've implemented using Reacts lifecycle method of `componentDidUpdate` too. This function is called upon any updates to the component and using this in conjuction with our already setup game loop is unwise. The game however seems to behave as expected with the one caveat that new food pieces are able to spawn inside the snake itself... hmmm. I suspect this is a side effect of the issue mentioned above but as an introductory piece to react I'm sure it can only get better.
 
 Code availble [here](https://github.com/sgregory8/snake)
 
