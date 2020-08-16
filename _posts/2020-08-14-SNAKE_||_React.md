@@ -42,7 +42,7 @@ export default props => {
         };
         return <div className="snake-segment" key={i} style={style}></div>;
       })}
-    </div>
+   </div>
   );
 };
 ```
@@ -58,7 +58,7 @@ With the components set up we can begin with the game. Essentially snake can be 
     document.onkeydown = this.onKeyDown;
     setInterval(this.moveSnake, 50);
   }
-```
+  ```
 
 We set our key listener and call the setInterval method with our game state update (moveSnake) and an update interval, in this case 50ms or 20 times a second. When a user hits an arrow key we map it to a property in our games state called direction. We then deterimine which direction the snake should move by calculating the new snake head posistion adding it to our existing snake array and removing the tail piece (after all snake is just a constantly shifting array).
 
@@ -81,13 +81,5 @@ The final result then is indeed reminsicent of a classic game of snake. The logi
 
 Code availble [here](https://github.com/sgregory8/snake)
 
-<iframe src="https://sgregory8.github.io/snake/" id="myIframe" title="Snake">
-  <script>
-    // Selecting the iframe element
-    var iframe = document.getElementById("myIframe");
-    // Adjusting the iframe height onload event
-    iframe.onload = function(){
-        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-    }
-    </script>
+<iframe src="https://sgregory8.github.io/snake/" width="600" height="600" title="Snake" scrolling="no">
 </iframe>
