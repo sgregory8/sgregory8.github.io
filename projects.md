@@ -17,3 +17,7 @@ java -jar dot-gif-it-0.1.jar
 ```
 
 The source code is available [here](https://github.com/sgregory8/dotGifIt)
+
+## Snake
+
+Classic [snake game](https://github.com/sgregory8/java-snake) written in Java using Swing. This has been released as a [.jar](https://github.com/sgregory8/java-snake/releases/download/1.01/snake-1.01.jar) and runnable to anyone posessing Java, AND as a standalone [.exe](https://github.com/sgregory8/java-snake/releases/download/1.01/Snake.v1.01.exe) runnable to anyone using 64 bit Windows.

@@ -55,4 +55,4 @@ And add the task to run our executable when it's opened
 
 ![launch4j basic configuration](/images/7Zip_SFX_task.png)
 
-After clicking 'Make SFX' we should have a new executable generated that just runs!
+After clicking 'Make SFX' we should have a new executable generated that just runs! The final size is around 300MB which isn't ideal but tricks to reduce the size of the bundled JRE and compressing the .exe can be used to make it smaller. Nonetheless i've relesead v1.01 [here](https://github.com/sgregory8/java-snake/releases/tag/1.01) and confirmed it works (at least it does on my Microsoft Surface).
