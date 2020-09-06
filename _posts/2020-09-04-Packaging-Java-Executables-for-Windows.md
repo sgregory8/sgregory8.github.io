@@ -53,6 +53,6 @@ We'll navigate to the .7z archive and add the file first. Next we'll make sure w
 
 And add the task to run our executable when it's opened
 
-![launch4j basic configuration](/images/7Zip_archive.png)
+![launch4j basic configuration](/images/7Zip_SFX_task.png)
 
 After clicking 'Make SFX' we should have a new executable generated that just runs!
