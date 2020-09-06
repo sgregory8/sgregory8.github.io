@@ -216,5 +216,3 @@ The resulting entity persisted to the database.
 ```
 
 All code available [here](https://github.com/sgregory8/spring-mongo-jackson).
-
-
