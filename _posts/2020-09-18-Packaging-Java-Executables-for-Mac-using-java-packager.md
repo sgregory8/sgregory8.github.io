@@ -7,7 +7,7 @@ Packaging up applications written in Java to run stand alone has never been easi
 
 ## The Application
 
-Again we'll be using my [snake game](https://sgregory8.github.io/SNAKE_-_React/) written in Java.
+Again we'll be using my [snake game](https://github.com/sgregory8/java-snake) written in Java.
 
 ## JavaPackager
 
