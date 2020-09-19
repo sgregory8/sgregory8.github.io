@@ -74,4 +74,4 @@ Adding assets to be included with the final package is also straightforward. By 
 
 ## Creating the packages
 
-We've bound the plugin to the package phase so running `mvn clean package` should generate our executables/disk images! The target folder now contains the .dmg and .exe. Mounting the image works the same as any other Mac application and launching it from launchpad is as easy a single click.
+We've bound the plugin to the package phase so running `mvn clean package` should generate our executables/disk images! The target folder now contains the .dmg and .exe. Mounting the image works the same as any other Mac application and launching it from launchpad is as easy a single click. Find the .dmg amongst the other Snake releases [here](https://github.com/sgregory8/java-snake/releases/tag/1.01).
