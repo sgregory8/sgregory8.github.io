@@ -61,4 +61,4 @@ robot.keyPress(37);
 
 The end result is a snake that follows a long and tedious path over and over, but it does allow for huge scoring (in fact maximum scoring). It was effective in exposing a few bugs in my implementation of the game itself and demonstrates some aspects of the game are simply too inefficiently implemented.
 
-I'll write this up and make the code available as always soon!
+I'll write this up properly and make the code available as always soon!
