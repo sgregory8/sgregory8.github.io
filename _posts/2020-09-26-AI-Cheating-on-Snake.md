@@ -34,7 +34,7 @@ After capturing the screenshot it's a case of looping through the pixel RGB valu
 
 ```Java
 // Game board x and y represent top left corner, 400 is both the width and the height of the
-// board but I use 420 capture everything
+// board but I use 420 to make sure I capture everything
   snakeSnapshot = robot.createScreenCapture(new Rectangle(gameBoardX1, gameBoardY1, 420, 420));
   // 20 Being the height and width of the snake's head
   for (int width = 0; width < (snakeSnapshot.getWidth()) / 20; width++) {
