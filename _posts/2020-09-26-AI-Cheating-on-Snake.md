@@ -11,7 +11,7 @@ Seeing as I've already developed a (hopefully) watertight implementation of the 
 
 ## The Cheat Design
 
-Java provides some very useful functionality inside `java.awt.Robot` which is used to form the fundamental basis of my cheat design. The idea being that it makes simulating key presses and taking screenshots a breeze (with some tinkering).
+Java provides some very useful functionality inside [`java.awt.Robot`](https://docs.oracle.com/javase/9/docs/api/java/awt/Robot.html) which is used to form the fundamental basis of my cheat design. The idea being that it makes simulating key presses and taking screenshots a breeze (with some tinkering).
 
 ### Opening the Application
 
@@ -57,8 +57,17 @@ Now that I know where the snake's head is and the path it should follow it's jus
 robot.keyPress(37);
 ```
 
+### Mac issues with Robot
+
+Despite the `Robot` API being relatively straight forward to use I encountered a couple of issues. The first being I had to specifically allow accessiblity for Intellij (enabled from within security preferences).
+
+The second issue resulted in this error message: `<pid> is calling TIS/TSM in non-main thread environment, ERROR : This is NOT allowed. Please call TIS/TSM in main thread!!!`, which did not cause the application to fail but was solved by adding `-XstartOnFirstThread` to the application run configuration.
+
 ## The Result
 
-The end result is a snake that follows a long and tedious path over and over, but it does allow for huge scoring (in fact maximum scoring). It was effective in exposing a few bugs in my implementation of the game itself and demonstrates some aspects of the game are simply too inefficiently implemented.
+The end result is a snake that follows a long and tedious path over and over, but it does allow for huge scoring (in fact maximum scoring). It was effective in exposing a few bugs in my implementation of the game itself and demonstrates some aspects of the game are simply too inefficiently implemented (a post for another day?).
 
-I'll write this up properly and make the code available as always soon!
+The algorithm is also VERY slow. Implementing a set Hamiltonian path is one of the simplest options but with the groundwork in place it's certainly possible to find much quicker solutions.
+
+Code [here](https://github.com/sgregory8/snake-cheater).
+
