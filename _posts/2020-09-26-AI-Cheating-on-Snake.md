@@ -33,7 +33,10 @@ Using `Robot` it's possible to take a screenshot of a select portion of the scre
 After capturing the screenshot it's a case of looping through the pixel RGB values to find the snake's head. To keep this as efficient as possible I chose to loop through in blocks of 20 pixels (that's the size of the snake head).
 
 ```Java
+// Game board x and y represent top left corner, 400 is both the width and the height of the
+// board but I use 420 capture everything
   snakeSnapshot = robot.createScreenCapture(new Rectangle(gameBoardX1, gameBoardY1, 420, 420));
+  // 20 Being the height and width of the snake's head
   for (int width = 0; width < (snakeSnapshot.getWidth()) / 20; width++) {
     for (int height = 0; height < (snakeSnapshot.getHeight()) / 20; height++) {
       if (snakeSnapshot.getRGB(width * 20, height * 20) == snakeHeadColour) {
@@ -46,7 +49,7 @@ After capturing the screenshot it's a case of looping through the pixel RGB valu
 
 ### Creating the Path
 
-As this was meant to be a relatively quick exercise (it wasn't) I decided to generate a [Hamiltonian path](https://en.wikipedia.org/wiki/Hamiltonian_path) for the snake grid. Essentially I just needed a cycle for the snake to follow such that it vists every square in the grid once and returns to the beginning to repeat the cycle. It's not particularly quick but it is effective.
+As this was meant to be a relatively quick exercise (it wasn't) I decided to generate a [Hamiltonian path](https://en.wikipedia.org/wiki/Hamiltonian_path) for the snake grid. Essentially I just needed a cycle for the snake to follow such that it visits every square in the grid once and returns to the beginning to repeat the cycle. It's not particularly quick but it is effective.
 
 ### Putting it all Together
 
