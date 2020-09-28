@@ -71,4 +71,4 @@ The algorithm is also VERY slow. Implementing a set Hamiltonian path is one of t
 
 Code [here](https://github.com/sgregory8/snake-cheater).
 
-<img src="https://github.com/sgregory8/sgregory8.github.io/blob/master/images/Hamiltonian_snake.png" width="250">
+<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/Hamiltonian_snake.png" width="250">
