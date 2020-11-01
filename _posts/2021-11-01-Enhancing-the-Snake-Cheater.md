@@ -43,6 +43,8 @@ private static void printSnake(SnakePieces[][] snakePieces) {
   }
 ```
 
+Where `H` is the snake's head, `b` it's body and `F` it's food 
+
 ```text
 ___________________________________________
 | b b b b b b b H - - - - - - - - - - - - |
@@ -70,4 +72,4 @@ ___________________________________________
 
 ### Kicking on
 
-Ideally this post would of covered another method to help cheat on the game but path finding methods and algorithms are not something I'm very familiar with and need to spend more time reading into before I attemp implementing them. However it's nice to see a small bit of progress to enhance what's already [existing](https://github.com/sgregory8/snake-cheater)!
+Ideally this post would of covered another method to help cheat on the game but path finding methods and algorithms are not something I'm very familiar with and need to spend more time reading into before I attempt implementing them. However it's nice to see a small bit of progress to enhance what's already [existing](https://github.com/sgregory8/snake-cheater)!
