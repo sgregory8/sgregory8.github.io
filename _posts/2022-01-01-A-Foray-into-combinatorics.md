@@ -11,12 +11,32 @@ english alphabet (a-z).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rpY8Pi5aJ9k" frameborder="0" allowfullscreen></iframe>
 
-## Smallest Combination of Stations?
+## The Station graph
 
-Adding routing to this problem as the video does introduces certain complexities; I was initially curious of the smallest number of
-stations on any part of the network that will contain the whole alphabet, they need not be contiguous.
+Initially I had to construct a graph structure containing the list of underground stations. The data in question is located on [Wikepedia](https://commons.wikimedia.org/wiki/London_Underground_geographic_maps/CSV) and looks a little old but it will do! It requires iterating over each of the stations and adding connections between them.
 
-## A Naive Approach
+## Routing
+
+My approach to find the shortest route is to iterate through each station in my list of stations using a depth first search (kind of) algorithm, e.g explore each 'route' in my graph before moving to the next route. This allows me to check the current stage of the route and terminate as soon as the route meets the condition of containing stations a-z.
+
+Feeding the algorithm all stations actutally produces a route of 12 stations (only 1 shorter than Geoff's) on 5 underground lines:
+
+- Belsize Park
+- Chalk Farm
+- Camden Town
+- Euston
+- Warren Street
+- Oxford Circus
+- Tottenham Court Road
+- Leicester Square
+- Picadilly Circus
+- Green Park
+- Victoria
+- St. James's Park
+
+I think this could be improved by the implemntation of breadth first search style alogithm as once a route is found there is no need to go deeper into the graph, it would be guranteed to be the shortest route. However a depth first search allows searching for things that aren't neccessarily tied to the route size, like shortest time, smallest number of lines etc.
+
+## Smallest Combination of Stations? A Naive Approach
 
 Usually I like to first attempt a solution in the 'most logical way' possible so that's what did here. The idea being relatively simple:
 
