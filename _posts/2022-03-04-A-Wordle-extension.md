@@ -5,6 +5,8 @@ title: A Wordle extension
 
 The hype and buzz around Wordle may have significantly died down but there's always time to plug an extension that makes it even easier!
 
+<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/wordle-hinter.gif">
+
 ## How does it work?
 
 The implementation of my wordle AI somewhat mimics how I attempted to play the game myself, I programmed it to follow these conditions:
