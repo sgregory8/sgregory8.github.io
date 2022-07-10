@@ -39,7 +39,7 @@ I've chosen to attempt to recreate an image of my (recently passed :'( ) dog Dex
 
 Leaning upon some basic scaling we'll make it smaller and apply the process above, the original:
 
-<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/Dexter.jpg" width="500">
+<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/2017_handsome_man.jpg" width="500">
 
 The result:
 
@@ -144,7 +144,7 @@ The problem with this representation is that there isn't enough contrast, we'll 
 
 The result is certainly more satisfying, however if we increase the scaling and zoom out upon the text generated we can get some even better results:
 
-<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/Dexter_text.jpg" width="500">
+<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/Dexter_text.png" width="500">
 
 Ironically I've had to post that render as an image. There are multiple things that we can tweak here including the character map so we can fine tune the results. This is where I'll be leaving it today though
 
