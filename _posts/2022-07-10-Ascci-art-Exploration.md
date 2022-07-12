@@ -142,9 +142,9 @@ The problem with this representation is that there isn't enough contrast, we'll 
 
 The result is certainly more satisfying, however if we increase the scaling and zoom out upon the text generated we can get some even better results:
 
-<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/Dexter_text.png" width="500">
+<embed type="text/html" src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/2017_handsome_man.html">
 
-Ironically I've had to post that render as an image. There are multiple things that we can tweak here including the character map so we can fine tune the results. This is where I'll be leaving it today though
+There are multiple things that we can tweak here including the character map so we can fine tune the results. This is where I'll be leaving it today though
 
 
 
