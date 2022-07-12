@@ -5,9 +5,7 @@ title: Images to Ascii art
 
 Ascii art has always been an interesting topic to me. Though it's style may seem a little dated it still finds plenty of use amongst modern terminal emulators today.
 
-The idea of creating images using nothing but text also decouples viewing pictures from having a device or software capable of interpreting the file format and rendering
-
-the imgage to a screen.
+The idea of creating images using nothing but text also decouples viewing pictures from having a device or software capable of interpreting the file format and rendering the image to a screen.
 
 ## The Methodology
 
