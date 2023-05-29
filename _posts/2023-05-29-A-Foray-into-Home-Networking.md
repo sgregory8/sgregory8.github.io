@@ -49,7 +49,7 @@ It also allows for customisation of local DNS so I can serve my OPNsense configu
 
 ## Network Topology
 
-<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/network_topology.svg">
+<img src="https://raw.githubusercontent.com/sgregory8/sgregory8.github.io/master/images/network_topology.png">
 
 ## What's Next?
 
