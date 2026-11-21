@@ -1,0 +1,8 @@
+services:
+  site:
+    build: .
+    image: sgregory8-site:latest
+    container_name: sgregory8-site
+    ports:
+      - "8080:80"
+    restart: unless-stopped
