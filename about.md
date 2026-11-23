@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Oxford based dev working in publishing!
+Senior Developer based in Oxford, building and managing AI-powered solutions.
 
 ### More Information
 
